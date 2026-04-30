@@ -22,7 +22,7 @@ const tones: { id: Tone; label: string; desc: string }[] = [
 
 const densities: { id: Density; label: string; desc: string }[] = [
   { id: "spacious", label: "Spacious", desc: "Generous whitespace" },
-  { id: "balanced", label: "Balanced", desc: "Default Axiom rhythm" },
+  { id: "balanced", label: "Balanced", desc: "Default Kairo rhythm" },
   { id: "compact", label: "Compact", desc: "Pro tools, dense lists" },
 ];
 
@@ -79,7 +79,7 @@ export function Builder({ open, onClose }: { open: boolean; onClose: () => void 
                   <Sparkles size={14} />
                 </span>
                 <div className="flex items-baseline gap-2">
-                  <span style={{ fontSize: "14px", fontWeight: 500 }}>Build with Axiom</span>
+                  <span style={{ fontSize: "14px", fontWeight: 500 }}>Build with Kairo</span>
                   <span className="text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
                     {step < 3 ? `Step ${step + 1} / 3` : "Preview"}
                   </span>
@@ -106,7 +106,7 @@ export function Builder({ open, onClose }: { open: boolean; onClose: () => void 
             <div className="flex-1 overflow-auto">
               <AnimatePresence mode="wait">
                 {step === 0 && (
-                  <StepShell key="s0" title="What do you want to create?" subtitle="Pick a frame. Axiom adapts.">
+                  <StepShell key="s0" title="What do you want to create?" subtitle="Pick a frame. Kairo adapts.">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
                       {kinds.map((k) => {
                         const Icon = k.icon;
@@ -226,7 +226,7 @@ export function Builder({ open, onClose }: { open: boolean; onClose: () => void 
                     </div>
                     <p className="text-[12px] text-muted-foreground mt-3 max-w-xl">
                       The builder surfaces gaps the system should grow into. Each label is a
-                      candidate ticket against Axiom itself.
+                      candidate ticket against Kairo itself.
                     </p>
                   </motion.div>
                 )}
@@ -454,7 +454,7 @@ function DashboardPreview({ tone, density }: { tone: Tone; density: Density }) {
         </div>
         <div className={`flex flex-col ${density === "compact" ? "gap-1" : "gap-2"}`}>
           {[
-            { who: "Aki K.", what: "Published Axiom v0.9", tag: "release", color: "var(--success)" },
+            { who: "Aki K.", what: "Published Kairo v0.9", tag: "release", color: "var(--success)" },
             { who: "Riya V.", what: "Updated tokens/feedback", tag: "tokens", color: "var(--brand)" },
             { who: "Sam P.", what: "Opened PR #482", tag: "PR", color: "var(--info)" },
           ].map((r, i) => (
@@ -545,7 +545,7 @@ function WebsitePreview({ tone, density }: { tone: Tone; density: Density }) {
             Workflows that <span style={{ color: accent }}>just run.</span>
           </div>
           <p className="text-[13px] text-muted-foreground mt-3 max-w-sm leading-relaxed">
-            Built on Axiom. Ship the boring stuff faster so the interesting stuff has room.
+            Built on Kairo. Ship the boring stuff faster so the interesting stuff has room.
           </p>
           <div className="flex items-center gap-2 mt-5">
             <span className="px-3 h-8 rounded-md text-[12px] flex items-center" style={{ background: accent, color: "var(--brand-foreground)" }}>

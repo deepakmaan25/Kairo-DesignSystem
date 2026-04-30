@@ -295,7 +295,7 @@ function SettingsScene() {
   return (
     <div className="w-full max-w-sm">
       <h4 style={{ fontSize: "16px", fontWeight: 500 }}>Preferences</h4>
-      <p className="text-[12px] text-muted-foreground mb-4">Update how Atlas behaves.</p>
+      <p className="text-[12px] text-muted-foreground mb-4">Update how Kairo behaves.</p>
       <div className="space-y-3">
         <Row label="Reduced motion" desc="Honor system preference">
           <Sw v={a} set={setA} />
@@ -458,7 +458,7 @@ function ProfileScene() {
         </span>
         <div>
           <div style={{ fontSize: "15px", fontWeight: 500 }}>Deepak Maan</div>
-          <div className="text-[12px] text-muted-foreground">Design lead · Atlas team</div>
+          <div className="text-[12px] text-muted-foreground">Design lead · Kairo team</div>
           <div className="flex items-center gap-1.5 mt-1.5">
             <span
               className="text-[10px] px-1.5 py-0.5 rounded"
@@ -508,7 +508,7 @@ function EmptyScene() {
       </motion.div>
       <h4 style={{ fontSize: "16px", fontWeight: 500 }}>Inbox zero</h4>
       <p className="text-[12px] text-muted-foreground mt-1.5">
-        You're all caught up. Atlas will let you know when something needs your eye.
+        You're all caught up. Kairo will let you know when something needs your eye.
       </p>
       <button className="inline-flex items-center gap-1.5 h-8 px-3 mt-4 rounded-md border border-border text-[12px]">
         <Plus size={12} />

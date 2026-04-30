@@ -58,7 +58,7 @@ export function Nav({
             <span className="absolute inset-[5px] rounded-sm bg-background" />
           </span>
           <span style={{ fontSize: "15px", fontWeight: 500, letterSpacing: "-0.01em" }}>
-            Atlas<span className="text-muted-foreground">/DS</span>
+            Kairo
           </span>
         </a>
         <nav className="hidden md:flex items-center gap-1 text-[13px]">
@@ -96,7 +96,7 @@ export function Nav({
             }}
           >
             <Wand2 size={13} className="group-hover:rotate-12 transition" />
-            Build with Atlas/DS
+            Build with Kairo
           </button>
           <button
             onClick={() => setDark(!dark)}

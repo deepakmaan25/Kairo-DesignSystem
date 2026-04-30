@@ -1,5 +1,5 @@
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from "motion/react";
-import { ArrowDown, ArrowUpRight, Check, Mail, Wand2 } from "lucide-react";
+import { ArrowDown, Check, Mail, Wand2 } from "lucide-react";
 import { useRef } from "react";
 
 export function Hero({ onBuild }: { onBuild: () => void }) {
@@ -29,7 +29,7 @@ export function Hero({ onBuild }: { onBuild: () => void }) {
         <div className="flex items-center gap-3 mb-10">
           <span className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--brand)" }} />
           <span className="text-[12px] tracking-[0.18em] text-muted-foreground uppercase">
-            Atlas Design System · v0.9
+            Kairo Design System · v0.9
           </span>
         </div>
 
@@ -45,18 +45,18 @@ export function Hero({ onBuild }: { onBuild: () => void }) {
             >
               A system{" "}
               <span style={{ color: "var(--brand)" }} className="italic font-normal">
-                that does
+                tuned to
               </span>
               <br />
-              the quiet work.
+              the right moment.
             </h1>
             <p
               className="text-muted-foreground max-w-md mt-6"
               style={{ fontSize: "15px", lineHeight: 1.6 }}
             >
-              Tokens, components, and patterns built to make the everyday
-              decisions disappear. Move your cursor across the cluster on the
-              right.
+              Kairo is a quiet, opinionated design system. Tokens, components,
+              and patterns calibrated so the obvious decisions stay out of your
+              way — and the deliberate ones land cleanly.
             </p>
             <div className="flex items-center gap-2.5 mt-7 flex-wrap">
               <a
@@ -64,16 +64,8 @@ export function Hero({ onBuild }: { onBuild: () => void }) {
                 className="group inline-flex items-center gap-2 px-4 h-10 rounded-md hover:opacity-90 transition"
                 style={{ fontSize: "13px", background: "var(--brand)", color: "var(--brand-foreground)" }}
               >
-                Explore the system
+                Explore Kairo
                 <ArrowDown size={14} className="group-hover:translate-y-0.5 transition" />
-              </a>
-              <a
-                href="#lab"
-                className="inline-flex items-center gap-2 px-4 h-10 rounded-md border border-border hover:bg-accent transition"
-                style={{ fontSize: "13px" }}
-              >
-                See it in motion
-                <ArrowUpRight size={14} />
               </a>
               <button
                 onClick={onBuild}
@@ -86,7 +78,7 @@ export function Hero({ onBuild }: { onBuild: () => void }) {
                 }}
               >
                 <Wand2 size={14} className="group-hover:rotate-12 transition" />
-                Build with Atlas/DS
+                Build with Kairo
               </button>
             </div>
           </div>
@@ -188,7 +180,7 @@ function TiltCluster() {
               style={{ background: "var(--info-soft)", color: "var(--info)" }}
             >
               <Check size={12} className="mt-0.5 flex-shrink-0" />
-              <span>Atlas v0.9 published successfully</span>
+              <span>Kairo v0.9 published successfully</span>
             </div>
           </div>
         </Layer>
@@ -214,7 +206,7 @@ function TiltCluster() {
             <div className="text-[9px] text-muted-foreground mb-1">Email</div>
             <div className="h-8 rounded-md bg-input-background pl-7 flex items-center text-[11px] text-muted-foreground relative">
               <Mail size={11} className="absolute left-2.5" />
-              you@atlas.io
+              you@kairo.io
             </div>
           </Card>
         </Layer>

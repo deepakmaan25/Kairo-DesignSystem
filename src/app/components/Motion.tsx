@@ -185,7 +185,7 @@ export function MotionSection() {
              <div className="text-[11px] tracking-[0.18em] uppercase text-muted-foreground mb-2">Comparison</div>
              <h4 style={{ fontSize: "20px", fontWeight: 500 }} className="mb-2">Abrupt vs. System Motion</h4>
              <p className="text-[13px] text-muted-foreground leading-relaxed">
-               Without motion, interface state changes feel broken and jarring. The user's eye has to re-parse the screen. With Axiom's motion tokens, changes are continuous.
+               Without motion, interface state changes feel broken and jarring. The user's eye has to re-parse the screen. With Kairo's motion tokens, changes are continuous.
              </p>
            </div>
            <div className="w-full md:w-[400px] flex gap-4 justify-end">

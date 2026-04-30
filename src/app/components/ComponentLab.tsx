@@ -400,7 +400,7 @@ function InputLab() {
                  <input
                    value={val}
                    onChange={(e) => setVal(e.target.value)}
-                   placeholder="you@axiom.io"
+                   placeholder="you@kairo.io"
                    type={reveal ? "text" : "email"}
                    className={`w-full bg-transparent outline-none ${icon ? "pl-9" : "pl-3"} pr-10`}
                    style={{ height: "100%" }}
@@ -915,7 +915,7 @@ function EmptyStateLab() {
           </div>
           <h4 style={{ fontSize: "18px", fontWeight: 500 }}>No projects yet</h4>
           <p className="text-[13px] text-muted-foreground mt-2">
-            Start one and Atlas will track its tokens automatically.
+            Start one and Kairo will track its tokens automatically.
           </p>
           <button
             className="inline-flex items-center gap-1.5 h-9 px-4 mt-5 rounded-md text-[13px]"

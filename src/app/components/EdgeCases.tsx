@@ -22,7 +22,7 @@ const cases = [
       <p className="text-[13px] leading-relaxed text-muted-foreground max-w-xs">
         A design system is a quiet contract between teammates. It exists so the
         common decisions disappear, leaving room for the rare ones that matter.
-        Atlas is never quite finished, and that is fine.
+        Kairo is never quite finished, and that is fine.
       </p>
     ),
   },
