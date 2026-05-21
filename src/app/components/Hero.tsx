@@ -16,20 +16,50 @@ export function Hero({ onBuild }: { onBuild: () => void }) {
       className="min-h-[100vh] pt-32 pb-16 overflow-hidden"
     >
       <div className="absolute inset-0 pointer-events-none">
+        {/* Gradient radials */}
         <div
-          className="absolute inset-0 opacity-70"
+          className="absolute inset-0"
           style={{
             backgroundImage:
-              "radial-gradient(circle at 78% 18%, var(--brand-soft), transparent 55%), radial-gradient(circle at 18% 80%, var(--accent), transparent 60%)",
+              "radial-gradient(ellipse 900px 700px at 90% -5%, color-mix(in srgb, var(--brand) 11%, transparent), transparent), radial-gradient(ellipse 700px 600px at -5% 105%, color-mix(in srgb, var(--brand) 6%, transparent), transparent)",
+          }}
+        />
+        {/* Dot grid */}
+        <div
+          className="absolute inset-0"
+          style={{
+            backgroundImage:
+              "radial-gradient(circle, color-mix(in srgb, var(--foreground) 11%, transparent) 1px, transparent 1px)",
+            backgroundSize: "24px 24px",
+            opacity: 0.28,
           }}
         />
       </div>
 
       <motion.div style={{ y, opacity }} className="relative max-w-[1400px] mx-auto px-8">
-        <div className="flex items-center gap-3 mb-10">
-          <span className="w-1.5 h-1.5 rounded-full" style={{ background: "var(--brand)" }} />
-          <span className="text-[12px] tracking-[0.18em] text-muted-foreground uppercase">
-            Kairo Design System · v0.9
+        <div className="mb-12">
+          <span
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full"
+            style={{
+              border: "1px solid color-mix(in srgb, var(--brand) 28%, transparent)",
+              background: "color-mix(in srgb, var(--brand) 7%, transparent)",
+            }}
+          >
+            <span
+              className="w-[5px] h-[5px] rounded-full flex-shrink-0"
+              style={{ background: "var(--brand)" }}
+            />
+            <span
+              style={{
+                fontSize: "10px",
+                letterSpacing: "0.14em",
+                color: "var(--brand)",
+                fontWeight: 500,
+              }}
+              className="uppercase"
+            >
+              Kairo Design System · v0.9
+            </span>
           </span>
         </div>
 
@@ -51,33 +81,42 @@ export function Hero({ onBuild }: { onBuild: () => void }) {
               the right moment.
             </h1>
             <p
-              className="text-muted-foreground max-w-md mt-6"
-              style={{ fontSize: "15px", lineHeight: 1.6 }}
+              className="text-muted-foreground max-w-[420px] mt-8"
+              style={{ fontSize: "15px", lineHeight: 1.7 }}
             >
               Kairo is a quiet, opinionated design system. Tokens, components,
               and patterns calibrated so the obvious decisions stay out of your
               way — and the deliberate ones land cleanly.
             </p>
-            <div className="flex items-center gap-2.5 mt-7 flex-wrap">
+            <div className="flex items-center gap-3 mt-10 flex-wrap">
               <a
                 href="#foundations"
-                className="group inline-flex items-center gap-2 px-4 h-10 rounded-md hover:opacity-90 transition"
-                style={{ fontSize: "13px", background: "var(--brand)", color: "var(--brand-foreground)" }}
+                className="group inline-flex items-center gap-2.5 px-5 h-11 rounded-md hover:opacity-90 transition-opacity duration-200"
+                style={{
+                  fontSize: "13px",
+                  fontWeight: 500,
+                  letterSpacing: "-0.01em",
+                  background: "var(--brand)",
+                  color: "var(--brand-foreground)",
+                  boxShadow: "0 1px 3px color-mix(in srgb, var(--brand) 40%, transparent), 0 4px 12px color-mix(in srgb, var(--brand) 20%, transparent)",
+                }}
               >
                 Explore Kairo
-                <ArrowDown size={14} className="group-hover:translate-y-0.5 transition" />
+                <ArrowDown size={13} className="group-hover:translate-y-0.5 transition-transform duration-200" />
               </a>
               <button
                 onClick={onBuild}
-                className="inline-flex items-center gap-2 px-4 h-10 rounded-md border transition group"
+                className="inline-flex items-center gap-2.5 px-5 h-11 rounded-md transition-colors duration-200 group"
                 style={{
                   fontSize: "13px",
-                  borderColor: "var(--brand)",
+                  fontWeight: 500,
+                  letterSpacing: "-0.01em",
+                  border: "1px solid color-mix(in srgb, var(--brand) 35%, transparent)",
                   color: "var(--brand)",
-                  background: "var(--brand-soft)",
+                  background: "color-mix(in srgb, var(--brand) 7%, transparent)",
                 }}
               >
-                <Wand2 size={14} className="group-hover:rotate-12 transition" />
+                <Wand2 size={13} className="group-hover:rotate-12 transition-transform duration-200" />
                 Build with Kairo
               </button>
             </div>
@@ -88,14 +127,20 @@ export function Hero({ onBuild }: { onBuild: () => void }) {
           </div>
         </div>
 
-        <div className="mt-16 flex items-end justify-between border-t border-border pt-6 flex-wrap gap-6">
-          <div className="grid grid-cols-3 gap-12 text-[12px] text-muted-foreground">
+        <div
+          className="mt-24 flex items-end justify-between pt-8 flex-wrap gap-6"
+          style={{ borderTop: "1px solid color-mix(in srgb, var(--border) 80%, transparent)" }}
+        >
+          <div className="grid grid-cols-3 gap-14">
             <Stat label="Tokens" value="142" />
             <Stat label="Components" value="38" />
             <Stat label="Patterns" value="24" />
           </div>
-          <span className="text-[11px] tracking-[0.2em] text-muted-foreground uppercase">
-            Scroll to explore
+          <span className="inline-flex items-center gap-1.5 select-none"
+            style={{ fontSize: "10px", letterSpacing: "0.2em", color: "var(--muted-foreground)" }}
+          >
+            <span className="uppercase">Scroll to explore</span>
+            <ArrowDown size={9} className="opacity-60" />
           </span>
         </div>
       </motion.div>
@@ -107,12 +152,17 @@ function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div>
       <div
-        style={{ fontSize: "32px", fontWeight: 500, letterSpacing: "-0.02em" }}
+        style={{ fontSize: "46px", fontWeight: 500, letterSpacing: "-0.04em", lineHeight: 1 }}
         className="text-foreground"
       >
         {value}
       </div>
-      <div className="text-[11px] tracking-[0.18em] uppercase mt-1">{label}</div>
+      <div
+        className="uppercase mt-2"
+        style={{ fontSize: "10px", letterSpacing: "0.2em", color: "var(--muted-foreground)" }}
+      >
+        {label}
+      </div>
     </div>
   );
 }
@@ -335,8 +385,11 @@ function Layer({
 function Card({ children }: { children: React.ReactNode }) {
   return (
     <div
-      className="bg-card border border-border rounded-lg p-3 w-[160px]"
-      style={{ boxShadow: "var(--shadow-floating)" }}
+      className="bg-card rounded-xl p-3.5 w-[164px]"
+      style={{
+        border: "1px solid color-mix(in srgb, var(--border) 80%, transparent)",
+        boxShadow: "var(--shadow-floating)",
+      }}
     >
       {children}
     </div>

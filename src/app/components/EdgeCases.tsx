@@ -165,21 +165,40 @@ export function EdgeCases() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-60px" }}
               transition={{ duration: 0.5, delay: (i % 3) * 0.06 }}
-              className="col-span-12 md:col-span-6 lg:col-span-4 border border-border rounded-lg p-5 bg-card"
-              style={{ boxShadow: "var(--shadow-raised)" }}
+              className="col-span-12 md:col-span-6 lg:col-span-4 rounded-xl p-6"
+              style={{
+                background: "var(--surface-card)",
+                border: "1px solid var(--border)",
+                boxShadow: "var(--shadow-raised)",
+              }}
+              whileHover={{
+                boxShadow: "var(--shadow-floating)",
+                transition: { duration: 0.22, ease: [0.22, 1, 0.36, 1] },
+              }}
             >
-              <span className="text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
+              <span
+                style={{
+                  fontSize: "10px",
+                  letterSpacing: "0.14em",
+                  color: "var(--brand)",
+                  fontWeight: 600,
+                }}
+                className="uppercase"
+              >
                 {String(i + 1).padStart(2, "0")}
               </span>
-              <h4 style={{ fontSize: "16px", fontWeight: 500 }} className="mt-2">
+              <h4 style={{ fontSize: "15px", fontWeight: 600, letterSpacing: "-0.01em" }} className="mt-2">
                 {c.title}
               </h4>
-              <p className="text-[12px] text-muted-foreground mt-1.5 mb-5 leading-relaxed">
+              <p style={{ fontSize: "12px", lineHeight: 1.65 }} className="text-muted-foreground mt-1.5 mb-5">
                 {c.body}
               </p>
               <div
-                className="rounded-md p-5 min-h-[100px] flex items-center justify-center relative"
-                style={{ background: "var(--surface-section)" }}
+                className="rounded-xl p-5 min-h-[100px] flex items-center justify-center relative"
+                style={{
+                  background: "var(--surface-section)",
+                  border: "1px solid color-mix(in srgb, var(--border) 60%, transparent)",
+                }}
               >
                 {c.component}
               </div>

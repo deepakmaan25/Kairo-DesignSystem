@@ -56,17 +56,41 @@ function ColorSection() {
   const [hovered, setHovered] = useState<string | null>(null);
   return (
     <div>
-      <div className="flex items-baseline justify-between mb-6">
-        <h3 style={{ fontSize: "20px", fontWeight: 500 }}>Color</h3>
-        <span className="text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
+      <div className="flex items-center justify-between mb-7">
+        <div className="flex items-center gap-3">
+          <span
+            className="w-[3px] rounded-full"
+            style={{ height: "18px", background: "var(--brand)" }}
+          />
+          <h3 style={{ fontSize: "18px", fontWeight: 600, letterSpacing: "-0.015em" }}>Color</h3>
+        </div>
+        <span
+          className="uppercase px-2.5 py-1 rounded-full"
+          style={{
+            fontSize: "10px",
+            letterSpacing: "0.12em",
+            color: "var(--muted-foreground)",
+            border: "1px solid var(--border)",
+            background: "var(--accent)",
+          }}
+        >
           Five scales · neutral, brand, feedback
         </span>
       </div>
-      <div className="space-y-3">
+      <div className="space-y-2.5">
         {Object.entries(colorScales).map(([name, scale]) => (
-          <div key={name} className="grid grid-cols-[120px_1fr] gap-6 items-center">
-            <span className="text-[12px] text-muted-foreground tracking-wide">color/{name}</span>
-            <div className="flex gap-1.5 h-14">
+          <div key={name} className="grid grid-cols-[110px_1fr] gap-5 items-center">
+            <span
+              style={{
+                fontSize: "10px",
+                fontFamily: "ui-monospace, SFMono-Regular, monospace",
+                letterSpacing: "0.06em",
+                color: "var(--muted-foreground)",
+              }}
+            >
+              color/{name}
+            </span>
+            <div className="flex gap-1.5 h-[52px]">
               {scale.map((c, i) => {
                 const id = `${name}-${i}`;
                 return (
@@ -74,15 +98,24 @@ function ColorSection() {
                     key={i}
                     onMouseEnter={() => setHovered(id)}
                     onMouseLeave={() => setHovered(null)}
-                    className="relative flex-1 rounded-md overflow-hidden cursor-pointer border border-border/50"
-                    style={{ background: c }}
-                    whileHover={{ y: -4 }}
+                    className="relative flex-1 cursor-pointer"
+                    style={{
+                      background: c,
+                      borderRadius: "8px",
+                      border: "1px solid rgba(0,0,0,0.06)",
+                    }}
+                    whileHover={{ y: -5, transition: { duration: 0.18, ease: [0.22, 1, 0.36, 1] } }}
                   >
                     {hovered === id && (
                       <motion.div
-                        initial={{ opacity: 0, y: 6 }}
+                        initial={{ opacity: 0, y: 4 }}
                         animate={{ opacity: 1, y: 0 }}
-                        className="absolute -bottom-7 left-0 right-0 text-center text-[10px] text-muted-foreground"
+                        className="absolute -bottom-6 left-0 right-0 text-center"
+                        style={{
+                          fontSize: "9px",
+                          color: "var(--muted-foreground)",
+                          fontFamily: "ui-monospace, monospace",
+                        }}
                       >
                         {c}
                       </motion.div>
@@ -102,9 +135,24 @@ function TypeSection() {
   const [active, setActive] = useState(0);
   return (
     <div>
-      <div className="flex items-baseline justify-between mb-6">
-        <h3 style={{ fontSize: "20px", fontWeight: 500 }}>Typography</h3>
-        <span className="text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
+      <div className="flex items-center justify-between mb-7">
+        <div className="flex items-center gap-3">
+          <span
+            className="w-[3px] rounded-full"
+            style={{ height: "18px", background: "var(--brand)" }}
+          />
+          <h3 style={{ fontSize: "18px", fontWeight: 600, letterSpacing: "-0.015em" }}>Typography</h3>
+        </div>
+        <span
+          className="uppercase px-2.5 py-1 rounded-full"
+          style={{
+            fontSize: "10px",
+            letterSpacing: "0.12em",
+            color: "var(--muted-foreground)",
+            border: "1px solid var(--border)",
+            background: "var(--accent)",
+          }}
+        >
           Click to preview
         </span>
       </div>
@@ -125,7 +173,14 @@ function TypeSection() {
             </button>
           ))}
         </div>
-        <div className="col-span-12 md:col-span-7 border border-border rounded-lg p-10 min-h-[280px] flex items-center">
+        <div
+          className="col-span-12 md:col-span-7 rounded-xl p-10 min-h-[280px] flex items-center"
+          style={{
+            border: "1px solid var(--border)",
+            background: "var(--surface-card)",
+            boxShadow: "var(--shadow-raised)",
+          }}
+        >
           <motion.div
             key={active}
             initial={{ opacity: 0, y: 12 }}
@@ -159,10 +214,25 @@ function SpacingSection() {
   const [scale, setScale] = useState(1);
   return (
     <div>
-      <div className="flex items-baseline justify-between mb-6">
-        <h3 style={{ fontSize: "20px", fontWeight: 500 }}>Spacing</h3>
+      <div className="flex items-center justify-between mb-7">
         <div className="flex items-center gap-3">
-          <span className="text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
+          <span
+            className="w-[3px] rounded-full"
+            style={{ height: "18px", background: "var(--brand)" }}
+          />
+          <h3 style={{ fontSize: "18px", fontWeight: 600, letterSpacing: "-0.015em" }}>Spacing</h3>
+        </div>
+        <div className="flex items-center gap-3">
+          <span
+            className="uppercase px-2.5 py-1 rounded-full"
+            style={{
+              fontSize: "10px",
+              letterSpacing: "0.12em",
+              color: "var(--muted-foreground)",
+              border: "1px solid var(--border)",
+              background: "var(--accent)",
+            }}
+          >
             Compress · Expand
           </span>
           <input
@@ -176,7 +246,14 @@ function SpacingSection() {
           />
         </div>
       </div>
-      <div className="border border-border rounded-lg p-10 overflow-hidden">
+      <div
+        className="rounded-xl p-10 overflow-hidden"
+        style={{
+          border: "1px solid var(--border)",
+          background: "var(--surface-card)",
+          boxShadow: "var(--shadow-raised)",
+        }}
+      >
         <div className="flex items-end gap-2">
           {spacingScale.map((s) => (
             <div key={s} className="flex flex-col items-center gap-2">
@@ -200,13 +277,35 @@ function SpacingSection() {
 function ElevationSection() {
   return (
     <div>
-      <div className="flex items-baseline justify-between mb-8">
-        <h3 style={{ fontSize: "20px", fontWeight: 500 }}>Elevation</h3>
-        <span className="text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
+      <div className="flex items-center justify-between mb-8">
+        <div className="flex items-center gap-3">
+          <span
+            className="w-[3px] rounded-full"
+            style={{ height: "18px", background: "var(--brand)" }}
+          />
+          <h3 style={{ fontSize: "18px", fontWeight: 600, letterSpacing: "-0.015em" }}>Elevation</h3>
+        </div>
+        <span
+          className="uppercase px-2.5 py-1 rounded-full"
+          style={{
+            fontSize: "10px",
+            letterSpacing: "0.12em",
+            color: "var(--muted-foreground)",
+            border: "1px solid var(--border)",
+            background: "var(--accent)",
+          }}
+        >
           System progression
         </span>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-px bg-border/40 border border-border/40 rounded-xl overflow-hidden p-px">
+      <div
+        className="grid grid-cols-1 md:grid-cols-5 gap-px rounded-2xl overflow-hidden"
+        style={{
+          background: "var(--border)",
+          border: "1px solid var(--border)",
+          boxShadow: "var(--shadow-raised)",
+        }}
+      >
         {/* Layer 0: Base */}
         <ElevationLevel
           step="00"

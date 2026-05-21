@@ -38,10 +38,32 @@ export function Closing() {
       <div className="relative max-w-[1400px] mx-auto px-8">
         <div className="grid grid-cols-12 gap-8 mb-16">
           <div className="col-span-12 md:col-span-3">
-            <div className="flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase text-background/50">
-              <span>07</span>
-              <span className="w-8 h-px bg-background/30" />
-              <span>Principles</span>
+            <div className="flex items-center gap-2.5">
+              <span
+                style={{
+                  fontSize: "11px",
+                  letterSpacing: "0.1em",
+                  fontWeight: 600,
+                  color: "var(--brand)",
+                }}
+              >
+                07
+              </span>
+              <span
+                className="w-5 h-px flex-shrink-0"
+                style={{ background: "color-mix(in srgb, var(--brand) 45%, transparent)" }}
+              />
+              <span
+                className="uppercase"
+                style={{
+                  fontSize: "10px",
+                  letterSpacing: "0.16em",
+                  fontWeight: 500,
+                  color: "rgba(255,255,255,0.4)",
+                }}
+              >
+                Principles
+              </span>
             </div>
           </div>
           <div className="col-span-12 md:col-span-9">
@@ -62,7 +84,7 @@ export function Closing() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-background/10 rounded-lg overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-background/10 rounded-2xl overflow-hidden">
           {principles.map((p, i) => (
             <motion.div
               key={p.n}
@@ -73,7 +95,15 @@ export function Closing() {
               className="bg-foreground p-8 md:p-10"
             >
               <div className="flex items-baseline justify-between mb-4">
-                <span className="text-[11px] tracking-[0.2em] uppercase text-background/40">
+                <span
+                  style={{
+                    fontSize: "10px",
+                    letterSpacing: "0.14em",
+                    fontWeight: 600,
+                    color: "var(--brand)",
+                  }}
+                  className="uppercase"
+                >
                   {p.n}
                 </span>
                 <span
@@ -82,12 +112,12 @@ export function Closing() {
                 />
               </div>
               <h3
-                style={{ fontSize: "26px", fontWeight: 500, letterSpacing: "-0.02em" }}
+                style={{ fontSize: "24px", fontWeight: 600, letterSpacing: "-0.025em", lineHeight: 1.15 }}
                 className="mb-3"
               >
                 {p.t}
               </h3>
-              <p className="text-[14px] text-background/60 leading-relaxed max-w-sm">{p.d}</p>
+              <p style={{ fontSize: "14px", lineHeight: 1.65 }} className="text-background/55 max-w-sm">{p.d}</p>
             </motion.div>
           ))}
         </div>
@@ -121,11 +151,17 @@ export function Closing() {
               I'm available for product design, design-system work, and
               interface engineering engagements. Reach out — short briefs welcome.
             </p>
-            <div className="flex flex-wrap items-center gap-2.5 mt-7">
+            <div className="flex flex-wrap items-center gap-3 mt-8">
               <a
                 href="mailto:dipumaan2002@gmail.com"
-                className="inline-flex items-center gap-2 px-4 h-10 rounded-md transition hover:opacity-90"
-                style={{ fontSize: "13px", background: "var(--brand)", color: "var(--brand-foreground)" }}
+                className="inline-flex items-center gap-2.5 px-5 h-11 rounded-lg transition-opacity duration-200 hover:opacity-90"
+                style={{
+                  fontSize: "13px",
+                  fontWeight: 500,
+                  background: "var(--brand)",
+                  color: "var(--brand-foreground)",
+                  boxShadow: "0 1px 3px color-mix(in srgb, var(--brand) 40%, transparent), 0 4px 12px color-mix(in srgb, var(--brand) 20%, transparent)",
+                }}
               >
                 <Mail size={14} />
                 dipumaan2002@gmail.com
@@ -134,8 +170,13 @@ export function Closing() {
                 href="https://deepakmaan.vercel.app"
                 target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center gap-2 px-4 h-10 rounded-md border border-background/20 text-background hover:bg-background/10 transition"
-                style={{ fontSize: "13px" }}
+                className="inline-flex items-center gap-2.5 px-5 h-11 rounded-lg transition-colors duration-200 hover:bg-background/10"
+                style={{
+                  fontSize: "13px",
+                  fontWeight: 500,
+                  border: "1px solid rgba(255,255,255,0.18)",
+                  color: "var(--background)",
+                }}
               >
                 Portfolio
                 <ArrowUpRight size={14} />
@@ -144,7 +185,7 @@ export function Closing() {
           </div>
 
           <div className="col-span-12 md:col-span-5">
-            <div className="grid grid-cols-1 gap-px bg-background/10 rounded-lg overflow-hidden">
+            <div className="grid grid-cols-1 gap-px bg-background/10 rounded-2xl overflow-hidden">
               {[
                 { label: "LinkedIn", href: "https://linkedin.com/in/deepakmaan", handle: "/in/deepakmaan" },
                 { label: "GitHub", href: "https://github.com/deepakmaan", handle: "@deepakmaan" },
@@ -171,18 +212,154 @@ export function Closing() {
           </div>
         </motion.div>
 
-        <div className="mt-20 pt-6 border-t border-background/15 flex items-end justify-between flex-wrap gap-4">
-          <div>
-            <div style={{ fontSize: "13px" }}>Kairo Design System</div>
-            <div className="text-[11px] text-background/50 mt-1">
-              Designed and built by Deepak Maan, 2026
+        <footer
+          aria-labelledby="footer-title"
+          className="mt-24 pt-10 border-t border-background/15"
+        >
+          <h2 id="footer-title" className="sr-only">
+            Site footer
+          </h2>
+          <div className="grid grid-cols-12 gap-8">
+            <div className="col-span-12 md:col-span-4">
+              <div className="flex items-center gap-2.5">
+                <span className="relative inline-block w-[22px] h-[22px]">
+                  <span
+                    className="absolute inset-0 rounded-[6px]"
+                    style={{ background: "var(--brand)" }}
+                  />
+                  <span
+                    className="absolute rounded-[3px]"
+                    style={{ inset: "4px", background: "var(--foreground)", opacity: 0.92 }}
+                  />
+                  <span
+                    className="absolute rounded-[2px]"
+                    style={{ inset: "7px", background: "var(--brand)" }}
+                  />
+                </span>
+                <span style={{ fontSize: "14px", fontWeight: 600, letterSpacing: "-0.02em" }}>Kairo</span>
+                <span
+                  className="px-1.5 h-[18px] inline-flex items-center rounded-full text-[10px] tracking-[0.08em]"
+                  style={{ background: "var(--brand-soft)", color: "var(--brand)" }}
+                >
+                  v0.9 · beta
+                </span>
+              </div>
+              <p className="text-[12px] text-background/55 leading-relaxed max-w-[280px] mt-4">
+                An interactive showcase of Kairo — a design system for calm,
+                editorial product surfaces.
+              </p>
+            </div>
+
+            <FooterCol
+              title="Explore"
+              items={[
+                { label: "Foundations", href: "#foundations" },
+                { label: "Token architecture", href: "#tokens" },
+                { label: "Component Lab", href: "#lab" },
+                { label: "Motion", href: "#motion" },
+                { label: "Scenes", href: "#scenes" },
+                { label: "Edge cases", href: "#edge" },
+              ]}
+            />
+            <FooterCol
+              title="Resources"
+              items={[
+                { label: "Open builder", href: "#top" },
+                { label: "Changelog", href: "#edge" },
+                { label: "Accessibility statement", href: "#accessibility" },
+                { label: "Search ( / )", href: "#top" },
+              ]}
+            />
+            <FooterCol
+              title="Contact"
+              widthClass="col-span-12 md:col-span-4"
+              items={[
+                { label: "dipumaan2002@gmail.com", href: "mailto:dipumaan2002@gmail.com" },
+                { label: "Portfolio", href: "https://deepakmaan.vercel.app", external: true },
+                { label: "LinkedIn", href: "https://linkedin.com/in/deepakmaan", external: true },
+                { label: "GitHub", href: "https://github.com/deepakmaan", external: true },
+              ]}
+            />
+          </div>
+
+          <div
+            id="accessibility"
+            className="mt-12 pt-6 border-t border-background/10 grid grid-cols-12 gap-4 items-start"
+          >
+            <p className="col-span-12 md:col-span-8 text-[11px] text-background/55 leading-relaxed max-w-[640px]">
+              <strong className="text-background/80">Accessibility:</strong>{" "}
+              Kairo aims to meet WCAG 2.2 AA. The showcase supports keyboard
+              navigation, visible focus, reduced motion, and screen-reader
+              landmarks. Found a barrier? Email{" "}
+              <a
+                href="mailto:dipumaan2002@gmail.com"
+                className="underline hover:text-background"
+              >
+                dipumaan2002@gmail.com
+              </a>
+              .
+            </p>
+            <div className="col-span-12 md:col-span-4 flex md:justify-end gap-4 text-[11px] text-background/55">
+              <span>
+                <span className="block text-background/40 tracking-[0.18em] uppercase text-[10px] mb-1">
+                  Version
+                </span>
+                v0.9.2
+              </span>
+              <span>
+                <span className="block text-background/40 tracking-[0.18em] uppercase text-[10px] mb-1">
+                  Updated
+                </span>
+                May 2026
+              </span>
             </div>
           </div>
-          <a href="#top" className="text-[12px] underline opacity-70 hover:opacity-100">
-            Back to top
-          </a>
-        </div>
+
+          <div className="mt-8 pt-6 border-t border-background/10 flex items-center justify-between flex-wrap gap-3">
+            <div className="text-[11px] text-background/50">
+              © 2026 Deepak Maan · Designed and built with Kairo.
+            </div>
+            <a
+              href="#top"
+              className="text-[11px] underline opacity-70 hover:opacity-100"
+            >
+              Back to top ↑
+            </a>
+          </div>
+        </footer>
       </div>
     </section>
+  );
+}
+
+function FooterCol({
+  title,
+  items,
+  widthClass = "col-span-6 md:col-span-2",
+}: {
+  title: string;
+  items: { label: string; href: string; external?: boolean }[];
+  widthClass?: string;
+}) {
+  return (
+    <nav aria-label={title} className={widthClass}>
+      <div className="text-[10px] tracking-[0.2em] uppercase text-background/40 mb-3">
+        {title}
+      </div>
+      <ul className="space-y-2">
+        {items.map((i) => (
+          <li key={i.label}>
+            <a
+              href={i.href}
+              target={i.external ? "_blank" : undefined}
+              rel={i.external ? "noreferrer" : undefined}
+              className="text-[12px] text-background/70 hover:text-background transition"
+            >
+              {i.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </nav>
   );
 }

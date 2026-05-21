@@ -96,16 +96,26 @@ export function Tokens() {
               <button
                 key={c.label}
                 onClick={() => setActive(i)}
-                className={`w-full text-left px-3 py-3 rounded-md flex items-center justify-between group transition-colors ${
-                  active === i ? "bg-background border border-border" : "hover:bg-accent"
+                className={`w-full text-left px-3 py-3 rounded-lg flex items-center justify-between group transition-all duration-200 ${
+                  active === i ? "" : "hover:bg-accent/60"
                 }`}
+                style={
+                  active === i
+                    ? {
+                        background: "var(--surface-card)",
+                        border: "1px solid var(--border)",
+                        boxShadow: "var(--shadow-raised)",
+                      }
+                    : { border: "1px solid transparent" }
+                }
               >
                 <span style={{ fontSize: "13px", fontWeight: active === i ? 500 : 400 }}>
                   {c.label}
                 </span>
                 <ChevronRight
                   size={14}
-                  className={`transition ${active === i ? "translate-x-0 opacity-100" : "-translate-x-1 opacity-40"}`}
+                  className={`transition-all duration-200 ${active === i ? "translate-x-0 opacity-100" : "-translate-x-1 opacity-30"}`}
+                  style={{ color: active === i ? "var(--brand)" : undefined }}
                 />
               </button>
             ))}
@@ -152,8 +162,12 @@ export function Tokens() {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3 }}
-              className="mt-6 border border-border rounded-lg bg-background p-8 flex items-center justify-between gap-6"
-              style={{ boxShadow: "var(--shadow-raised)" }}
+              className="mt-6 rounded-xl p-8 flex items-center justify-between gap-6"
+              style={{
+                background: "var(--surface-card)",
+                border: "1px solid var(--border)",
+                boxShadow: "var(--shadow-raised)",
+              }}
             >
               <div className="flex flex-col gap-1.5">
                 <span className="text-[11px] tracking-[0.18em] uppercase text-muted-foreground">
@@ -196,26 +210,54 @@ function TokenLayer({
           <ChevronRight size={12} />
         </div>
       )}
-      <div className="bg-background border border-border rounded-lg p-5 h-full">
-        <div className="flex items-center justify-between mb-4">
-          <span className="text-[10px] tracking-[0.2em] uppercase text-muted-foreground">
+      <div
+        className="rounded-xl p-5 h-full"
+        style={{
+          background: "var(--surface-card)",
+          border: "1px solid var(--border)",
+          boxShadow: "var(--shadow-raised)",
+        }}
+      >
+        <div className="flex items-center justify-between mb-5">
+          <span
+            className="uppercase"
+            style={{ fontSize: "9px", letterSpacing: "0.18em", color: "var(--muted-foreground)" }}
+          >
             {step} · {level}
           </span>
-          <span className="w-6 h-6 rounded border border-border" style={{ background: swatch }} />
+          <span
+            className="w-7 h-7 rounded-lg"
+            style={{
+              background: swatch,
+              border: "1px solid rgba(0,0,0,0.08)",
+              boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
+            }}
+          />
         </div>
         <div
-          style={{ fontFamily: "ui-monospace, SFMono-Regular, monospace", fontSize: "12px" }}
+          style={{
+            fontFamily: "ui-monospace, SFMono-Regular, monospace",
+            fontSize: "12px",
+            fontWeight: 500,
+            letterSpacing: "0.02em",
+          }}
           className="break-all"
         >
           {token}
         </div>
         <div
-          style={{ fontFamily: "ui-monospace, SFMono-Regular, monospace", fontSize: "11px" }}
-          className="text-muted-foreground mt-1 break-all"
+          style={{
+            fontFamily: "ui-monospace, SFMono-Regular, monospace",
+            fontSize: "11px",
+            color: "var(--brand)",
+          }}
+          className="mt-1 break-all"
         >
           → {value}
         </div>
-        <p className="text-[12px] text-muted-foreground mt-4 leading-relaxed">{description}</p>
+        <p style={{ fontSize: "12px", lineHeight: 1.6 }} className="text-muted-foreground mt-4">
+          {description}
+        </p>
       </div>
     </div>
   );

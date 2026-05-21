@@ -23,10 +23,32 @@ export function SectionHeader({
       className="grid grid-cols-12 gap-8 mb-16"
     >
       <div className="col-span-12 md:col-span-3">
-        <div className="flex items-center gap-3 text-[11px] tracking-[0.2em] uppercase text-muted-foreground">
-          <span>{index}</span>
-          <span className="w-8 h-px bg-border" />
-          <span>{kicker}</span>
+        <div className="flex items-center gap-2.5">
+          <span
+            style={{
+              fontSize: "11px",
+              letterSpacing: "0.1em",
+              fontWeight: 600,
+              color: "var(--brand)",
+            }}
+          >
+            {index}
+          </span>
+          <span
+            className="w-5 h-px flex-shrink-0"
+            style={{ background: "color-mix(in srgb, var(--brand) 45%, transparent)" }}
+          />
+          <span
+            className="uppercase"
+            style={{
+              fontSize: "10px",
+              letterSpacing: "0.16em",
+              fontWeight: 500,
+              color: "var(--muted-foreground)",
+            }}
+          >
+            {kicker}
+          </span>
         </div>
       </div>
       <div className="col-span-12 md:col-span-9">
