@@ -10,14 +10,13 @@ import { Scenes } from "./components/Scenes";
 import { EdgeCases } from "./components/EdgeCases";
 import { Closing } from "./components/Closing";
 import { Builder } from "./components/Builder";
-import { Analytics } from "@vercel/analytics/next"
+import { Analytics } from "@vercel/analytics/react";   // ✅ fixed: /react not /next
 import { CommandPalette } from "./components/CommandPalette";
 
 export default function App() {
   const [dark, setDark] = useState(false);
   const [builderOpen, setBuilderOpen] = useState(false);
   const [paletteOpen, setPaletteOpen] = useState(false);
-
   const { scrollYProgress } = useScroll();
   const progress = useSpring(scrollYProgress, { stiffness: 120, damping: 22, mass: 0.3 });
 
@@ -46,19 +45,17 @@ export default function App() {
 
   return (
     <div className="relative min-h-screen bg-background text-foreground antialiased">
-      <a
+      
         href="#main"
         className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[200] focus:px-3 focus:h-9 focus:inline-flex focus:items-center focus:rounded-md focus:border focus:border-border focus:bg-popover focus:text-foreground focus:text-[12px]"
       >
         Skip to content
       </a>
-
       <motion.div
         aria-hidden="true"
         style={{ scaleX: progress, transformOrigin: "0% 50%", background: "var(--brand)" }}
         className="fixed top-0 left-0 right-0 h-[2px] z-[60]"
       />
-
       <Nav dark={dark} setDark={setDark} onBuild={openBuilder} onSearch={openPalette} />
       <main id="main" tabIndex={-1}>
         <Hero onBuild={openBuilder} />
@@ -78,6 +75,7 @@ export default function App() {
         dark={dark}
         onOpenBuilder={openBuilder}
       />
+      <Analytics />   {/* ✅ added: renders the tracker */}
     </div>
   );
 }
