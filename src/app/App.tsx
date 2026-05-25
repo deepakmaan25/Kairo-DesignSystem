@@ -10,6 +10,7 @@ import { Scenes } from "./components/Scenes";
 import { EdgeCases } from "./components/EdgeCases";
 import { Closing } from "./components/Closing";
 import { Builder } from "./components/Builder";
+import { Analytics } from "@vercel/analytics/next"
 import { CommandPalette } from "./components/CommandPalette";
 
 export default function App() {
