@@ -10,7 +10,8 @@ import { Scenes } from "./components/Scenes";
 import { EdgeCases } from "./components/EdgeCases";
 import { Closing } from "./components/Closing";
 import { Builder } from "./components/Builder";
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics, track } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 import { CommandPalette } from "./components/CommandPalette";
 
 export default function App() {
@@ -28,11 +29,13 @@ export default function App() {
     const onKey = (e: KeyboardEvent) => {
       if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k") {
         e.preventDefault();
+        track("palette_opened", { trigger: "keyboard_shortcut" });
         setPaletteOpen((v) => !v);
       } else if (e.key === "/" && !paletteOpen) {
         const t = e.target as HTMLElement | null;
         if (t && (t.tagName === "INPUT" || t.tagName === "TEXTAREA" || t.isContentEditable)) return;
         e.preventDefault();
+        track("palette_opened", { trigger: "slash_key" });
         setPaletteOpen(true);
       }
     };
@@ -40,8 +43,21 @@ export default function App() {
     return () => window.removeEventListener("keydown", onKey);
   }, [paletteOpen]);
 
-  const openBuilder = () => setBuilderOpen(true);
-  const openPalette = () => setPaletteOpen(true);
+  const openBuilder = () => {
+    track("builder_opened");
+    setBuilderOpen(true);
+  };
+
+  const openPalette = () => {
+    track("palette_opened", { trigger: "nav_button" });
+    setPaletteOpen(true);
+  };
+
+  const toggleTheme = () => {
+    const next = !dark;
+    track("theme_toggled", { to: next ? "dark" : "light" });
+    setDark(next);
+  };
 
   return (
     <div className="relative min-h-screen bg-background text-foreground antialiased">
@@ -53,7 +69,7 @@ export default function App() {
         style={{ scaleX: progress, transformOrigin: "0% 50%", background: "var(--brand)" }}
         className="fixed top-0 left-0 right-0 h-[2px] z-[60]"
       />
-      <Nav dark={dark} setDark={setDark} onBuild={openBuilder} onSearch={openPalette} />
+      <Nav dark={dark} setDark={toggleTheme} onBuild={openBuilder} onSearch={openPalette} />
       <main id="main" tabIndex={-1}>
         <Hero onBuild={openBuilder} />
         <Foundations />
@@ -68,11 +84,12 @@ export default function App() {
       <CommandPalette
         open={paletteOpen}
         onClose={() => setPaletteOpen(false)}
-        onToggleTheme={() => setDark(!dark)}
+        onToggleTheme={toggleTheme}
         dark={dark}
         onOpenBuilder={openBuilder}
       />
       <Analytics />
+      <SpeedInsights />
     </div>
   );
 }
